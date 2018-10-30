@@ -45,24 +45,35 @@ jobTitleList.addEventListener('change', function(event){
     
     
 //});
-const color = document.querySelector('#color');
-const colors = document.querySelectorAll('#color option');
-
 
 
 
 /* -------- T-shirt section --------- */ 
  
 const designItems = document.querySelector('#design');
+const colorOptions = document.querySelector('#color').options;
 //const themeSelected = document.querySelector('#design option');
 designItems.addEventListener('change', function(event) {
+
     
 
     // If user selects JS puns 
     if (event.target.value == "js puns") {
+         colorOptions[3].setAttribute('hidden', true);
+         colorOptions[4].setAttribute('hidden', true);
+         colorOptions[5].setAttribute('hidden', true);
 
     } else if (event.target.value == "heart js") {
-
+       //colorOptions[3].setAttribute('selected', true);
+       colorOptions[0].setAttribute('hidden', true);
+       colorOptions[1].setAttribute('hidden', true);
+       colorOptions[2].setAttribute('hidden', true);
+    }
+    else {
+        for(let i = 0; i < colorOptions.length; i+= 1) {
+            colorOptions[i].removeAttribute('hidden');
+            colorOptions[i].removeAttribute('selected');
+        }
     }
 
 });
